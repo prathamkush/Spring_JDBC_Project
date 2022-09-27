@@ -24,6 +24,19 @@ public class SpringBootJdbcApplication implements CommandLineRunner {
 
 		System.out.println("\n-----------INSERT A PLAYER---------------\n");
 		System.out.println(dao.insertPlayer(new Player(4, "Dave", 30, "CANADA", new Date(System.currentTimeMillis()), 10)));
+		System.out.println("----updated data-----");
+		System.out.println(dao.getAllPlayers());
+
+		System.out.println("\n-----------UPDATING A PLAYER'S INFO---------------\n");
+		System.out.println(dao.updatePlayerInfo(new Player(4, "Dave", 35, "BRAZIL", new Date(System.currentTimeMillis()), 11)));
+		System.out.println("----updated data-----");
+		System.out.println(dao.getAllPlayers());
+
+		System.out.println("\n-----------DELETING A PLAYER---------------\n");
+		System.out.println(dao.deletePlayer(3));
+		System.out.println("----updated data-----");
+		System.out.println(dao.getAllPlayers());
+
 	}
 
 
