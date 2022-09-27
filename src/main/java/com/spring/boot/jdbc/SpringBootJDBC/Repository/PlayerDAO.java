@@ -1,5 +1,6 @@
-package com.spring.boot.jdbc.SpringBootJDBC;
+package com.spring.boot.jdbc.SpringBootJDBC.Repository;
 
+import com.spring.boot.jdbc.SpringBootJDBC.Entity.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,8 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map;
 
+// THIS IS USED FOR SQL BASED CRUD OPERATIONS (using jdbctemplate)
+//jdbc template based repo
 @Repository
 public class PlayerDAO {
 
