@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 public class Player {
-    private int pid;
+    private int ID;
     private String name;
     private int age;
     private String nationality;
@@ -13,8 +13,8 @@ public class Player {
 
     public Player(){}
 
-    public Player(int pid, String name, int age, String nationality, Date dob, int designation) {
-        this.pid = pid;
+    public Player(int ID, String name, int age, String nationality, Date dob, int designation) {
+        this.ID = ID;
         this.name = name;
         this.age = age;
         this.nationality = nationality;
@@ -22,12 +22,12 @@ public class Player {
         this.designation = designation;
     }
 
-    public int getPid() {
-        return pid;
+    public int getID() {
+        return ID;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getName() {
@@ -73,7 +73,7 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "pid=" + pid +
+                "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", nationality='" + nationality + '\'' +

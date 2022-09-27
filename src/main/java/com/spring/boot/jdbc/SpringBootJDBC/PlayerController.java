@@ -18,4 +18,10 @@ public class PlayerController {
         return obj.getAllPlayers();
     }
 
+
+//    @GetMapping("/playerById")
+//    public Player getPlayerDataById(){
+//        return obj.getPlayerbyId();
+//    }
+
 }
