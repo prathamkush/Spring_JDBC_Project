@@ -22,8 +22,8 @@ public class PlayerDAO {
     public List<Player> getAllPlayers(){
         String getPlayerQuery = "SELECT * FROM Player";
         // JDBCTEMPLATE => Query => Database => Result Set => Row Mapped => Player.Class => List<Object>
-        return jdbcTemplate.query(getPlayerQuery, new BeanPropertyRowMapper<Player>(Player.class));
-        // return jdbcTemplate.query(getPlayerQuery, new PlayerMapper());
+        //return jdbcTemplate.query(getPlayerQuery, new BeanPropertyRowMapper<Player>(Player.class));
+        return jdbcTemplate.query(getPlayerQuery, new PlayerMapper());
     }
 
     // READ (GET BY ID)
@@ -40,7 +40,7 @@ public class PlayerDAO {
 
 
         // will return 1 after success
-        return jdbcTemplate.update(insertPlayerQuery, new PlayerMapper() ,new Object[]{player.getID(), player.getName(), player.getAge(),
+        return jdbcTemplate.update(insertPlayerQuery ,new Object[]{player.getID(), player.getName(), player.getAge(),
                 player.getNationality(), new Timestamp(player.getDob().getTime()), player.getDesignation()});
 
 
@@ -51,7 +51,7 @@ public class PlayerDAO {
         String updateQuery = "UPDATE Player "+" SET Name = ?, Age = ?, Nationality = ?, DOB = ?, Designation = ?"+
                 "WHERE ID = ?";
 
-        return jdbcTemplate.update(updateQuery, new PlayerMapper() ,new Object[]{player.getName(), player.getAge(), player.getNationality(),
+        return jdbcTemplate.update(updateQuery, new Object[]{player.getName(), player.getAge(), player.getNationality(),
                 new Timestamp(player.getDob().getTime()), player.getDesignation(), player.getID()});
 
     }
@@ -60,7 +60,7 @@ public class PlayerDAO {
     public int deletePlayer(int id){
         String deleteQuery = "DELETE FROM Player "+" WHERE ID = ?";
 
-        return jdbcTemplate.update(deleteQuery,new PlayerMapper(), new Object[]{id});
+        return jdbcTemplate.update(deleteQuery, new Object[]{id});
     }
 
     //******************** USING ROWMAPPER INSTEAD OF BEANPROPERTYROWMAPPER *************************//
