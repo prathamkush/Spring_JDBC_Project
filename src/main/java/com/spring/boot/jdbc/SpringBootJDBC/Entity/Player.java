@@ -5,6 +5,7 @@ import java.util.Date;
 
 
 @Entity                // Rowmapping (create database/schema)
+@NamedQuery(name="get_all_players", query = "SELECT p FROM Player p")
 @Table(name="Player") //give the table name
 public class Player {
 

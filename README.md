@@ -25,4 +25,16 @@ PlayerDAO.getAllPlayers() =>Communicate with the Database using JDBC Template=> 
 
 Flow Diagram -> [https://drive.google.com/file/d/1zh-lA4336Upk4H67mXPlJ_LVnkx16Ko6/view?usp=sharing]()
 
+**JPA**
 
+=> No Row Mapper
+=> No schema.sql
+
+@Repository
+
+@Entity1 => @Table => In  Database => Hibernate Core Will Drop in the database and create new one => @Column, @Id,=> Columns inside our database
+@Entity2
+@Entity3
+
+
+JPA Diagram -> [https://drive.google.com/file/d/17oghBGETMLB6HeFLVZiI1QQfSXEpor2R/view?usp=sharing]()
