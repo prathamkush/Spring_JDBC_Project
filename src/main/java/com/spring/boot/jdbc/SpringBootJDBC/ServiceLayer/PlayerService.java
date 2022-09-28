@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.websocket.server.PathParam;
 import java.lang.reflect.Field;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -68,7 +69,8 @@ public class PlayerService {
                 // findField-> finds the field of an object (class, key (attribute)) => returns field object
                 Field field = ReflectionUtils.findField(Player.class, key);
                 ReflectionUtils.makeAccessible(field); // make the private variables in use (toggles)
-                ReflectionUtils.setField(field, tempPlayer.get(), value); // set the field with the updated/ patched data
+                if(key=="dob") ReflectionUtils.setField(field, tempPlayer.get(), Date.valueOf((String) value));
+                else ReflectionUtils.setField(field, tempPlayer.get(), value); // set the field with the updated/ patched data
             });
         }
 
