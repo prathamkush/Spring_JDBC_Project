@@ -25,15 +25,15 @@ public class TennisPlayerSpringDataApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("\n Inserting a player \n", repo.save(new Player("Eve",	23, "JAPANESE", Date.valueOf("2000-01-01"),	1)));
-        logger.info("\n Inserting a player \n",repo.save(new Player("Alice",	22, "BRAZIL", Date.valueOf("2000-01-01"),	5)));
-        logger.info("\n Inserting a player \n",repo.save(new Player("Bob",	62, "CHINESE", Date.valueOf("2000-01-01"),	6)));
-
-
-        logger.info("\n Finding the player by ID \n", repo.findById(1));
-//        logger.info("\n Deleting by ID \n");
-//        repo.deleteById(2);
-        logger.info("\n Find all players \n", repo.findAll());
+//        logger.info("\n Inserting a player \n", repo.save(new Player("Eve",	23, "JAPANESE", Date.valueOf("2000-01-01"),	1)));
+//        logger.info("\n Inserting a player \n",repo.save(new Player("Alice",	22, "BRAZIL", Date.valueOf("2000-01-01"),	5)));
+//        logger.info("\n Inserting a player \n",repo.save(new Player("Bob",	62, "CHINESE", Date.valueOf("2000-01-01"),	6)));
+//
+//
+//        logger.info("\n Finding the player by ID \n", repo.findById(1));
+////        logger.info("\n Deleting by ID \n");
+////        repo.deleteById(2);
+//        logger.info("\n Find all players \n", repo.findAll());
 
     }
 }

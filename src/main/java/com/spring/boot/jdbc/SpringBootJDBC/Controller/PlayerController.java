@@ -4,11 +4,10 @@ import com.spring.boot.jdbc.SpringBootJDBC.Entity.Player;
 import com.spring.boot.jdbc.SpringBootJDBC.Repository.PlayerDAO;
 import com.spring.boot.jdbc.SpringBootJDBC.ServiceLayer.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PlayerController {
@@ -30,6 +29,28 @@ public class PlayerController {
     public Player getPlayer(@PathVariable int id) {
         return service.findPlayerByID(id);
     }
+
+
+    @PostMapping("/addPlayer")
+    //@RequestMapping(method=RequestMethod.POST)
+    public Player addPlayer(@RequestBody Player p){
+        //p.setName("Sam");
+        return service.addPlayer(p);
+    }
+
+
+    @PutMapping("/updatePlayer/{id}")
+    public Player updatePlayer(@PathVariable int id,@RequestBody Player p){
+        return service.updatePlayerById(id, p);
+    }
+
+
+    @PatchMapping("/patchPlayer/{id}")
+    public Player patchPlayer(@PathVariable int id, @RequestBody Map<String, Object> playerPatch){
+        return service.patchPlayerById(id, playerPatch);
+    }
+
+
 
 
 
