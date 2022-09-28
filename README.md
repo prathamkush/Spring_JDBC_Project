@@ -133,5 +133,22 @@ HTTP Methods
 
 
 
+//*************************
+
+**REST APPS**
+
+
+JSON DATA BINDING
+
+{
+“name”: value
+}
+
+=> different apps exchange data
+
+=> Jackson Dependency  => POJO(Plain Old Java Object) => Converted => JSON Data Binding
+
+
+
 
 
