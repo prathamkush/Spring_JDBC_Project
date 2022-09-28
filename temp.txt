@@ -18,3 +18,10 @@ INSERT INTO Player VALUES( 1,	'Alice',	22, 'INDIAN', '2000-01-01',	1);
 INSERT INTO Player VALUES( 2,	'Bob',	19, 'BRITISH', '2000-01-01',	5);
 INSERT INTO Player VALUES( 3,	'Carol',	32, 'US', '2000-01-01',	6);
 
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=test
+spring.datasource.password=test
+spring.h2.console.enabled=true
+spring.h2.console.settings.web-allow-others=true
+spring.jpa.show-sql=true

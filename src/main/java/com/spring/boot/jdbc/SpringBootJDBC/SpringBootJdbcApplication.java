@@ -64,7 +64,7 @@ public class SpringBootJdbcApplication implements CommandLineRunner {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootJdbcApplication.class, args);
+		//SpringApplication.run(SpringBootJdbcApplication.class, args);
 
 	}
 
