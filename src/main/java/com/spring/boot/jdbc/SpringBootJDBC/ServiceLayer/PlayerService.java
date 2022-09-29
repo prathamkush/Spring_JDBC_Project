@@ -92,14 +92,15 @@ public class PlayerService {
         repo.updateNationality(id, nationality);
     }
 
-//    @Transactional
-//    public void updateAgeAndNationality(int id, int age, String nationality){
-//        Optional<Player> tempPlayer = repo.findById(id);
-//
-//        if(tempPlayer.isEmpty()) throw new RuntimeException("Player with id : "+id+" not found ");
-//
-//        repo.updateAgeAndNationality(id, age,  nationality);
-//    }
+    // partial update for two fields
+    @Transactional
+    public void updateAgeAndNationality(int id, int age, String nationality){
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        if(tempPlayer.isEmpty()) throw new RuntimeException("Player with id : "+id+" not found ");
+
+        repo.updateAgeAndNationality(id, age,  nationality);
+    }
 
 
     // delete operations

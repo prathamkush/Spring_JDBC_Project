@@ -59,11 +59,12 @@ public class PlayerController {
         service.updateNationality(id, nationality);
     }
 
-//    //updating with query (for age and nationality)
-//    @PatchMapping("/patchPlayer/{id}/age/nationality")
-//    public void patchAgeAndNationality(@PathVariable int id, @RequestBody int age, @RequestBody String nationality){
-//        service.updateAgeAndNationality(id,  age, nationality);
-//    }
+
+    //updating with query (for age and nationality)
+    @PatchMapping("/patchPlayer/{id}/age/nationality")
+    public void patchAgeNationality(@PathVariable int id, @RequestBody Map<String,Object> partialDetails){
+        service.updateAgeAndNationality(id,Integer.parseInt(partialDetails.get("age").toString()),partialDetails.get("nationality").toString());
+    }
 
 
     // Delete operations
