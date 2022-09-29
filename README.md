@@ -123,13 +123,14 @@ Response Body/Message
 
 ***********
 
-REST -> [https://drive.google.com/file/d/1Jpdv77XTyuGgAbOkfHniEOO14I2vI4l-/view?usp=sharing]
+REST -> [[https://drive.google.com/file/d/1Jpdv77XTyuGgAbOkfHniEOO14I2vI4l-/view?usp=sharing]()]
 
 HTTP Methods
 1. POST => CREATING A RESOURCE => h2Database testdb
 2. GET => READING A RESOURCE => h2Database:testdb
 3. PUT => UPDATING A RESOURCE => h2Database:testdb
-4. DELETE => DELETING A RESOURCE=> h2Database:testdb
+4. DELETE => DELETING A RESOURCE=> h2Database:testdb --todo
+5. PATCH => UPDATING CERTAIN ATTRIBUTE(S) of a resource
 
 
 
@@ -149,6 +150,9 @@ JSON DATA BINDING
 => Jackson Dependency  => POJO(Plain Old Java Object) => Converted => JSON Data Binding
 
 
+//********************
 
+EXCEPTION HANDLING IMG ->[https://drive.google.com/file/d/1EoTugnH8_29jMweFOvcLHZgYi3zc7GsD/view?usp=sharing]()
+]
 
 

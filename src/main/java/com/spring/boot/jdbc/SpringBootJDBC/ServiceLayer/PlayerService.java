@@ -1,6 +1,7 @@
 package com.spring.boot.jdbc.SpringBootJDBC.ServiceLayer;
 
 import com.spring.boot.jdbc.SpringBootJDBC.Entity.Player;
+import com.spring.boot.jdbc.SpringBootJDBC.ErrorResponse.PlayerNotFoundException;
 import com.spring.boot.jdbc.SpringBootJDBC.Repository.PlayerRepository;
 import com.spring.boot.jdbc.SpringBootJDBC.Repository.PlayerSpringDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.transaction.Transactional;
 import javax.websocket.server.PathParam;
 import java.lang.reflect.Field;
 import java.sql.Date;
@@ -36,7 +38,7 @@ public class PlayerService {
 
         if(tempPlayer.isPresent()) p = tempPlayer.get();
         else{
-            throw new RuntimeException("Player with id : "+id+" not found ");
+            throw new PlayerNotFoundException("Player with id : "+id+" not found ");
         }
         return p;
     }
@@ -52,7 +54,7 @@ public class PlayerService {
         Optional<Player> tempPlayer = repo.findById(id);
         //repo.getOne(id) -> deprecated
 
-        if(tempPlayer.isEmpty()) throw new RuntimeException("Player with id : "+id+" not found ");
+        if(tempPlayer.isEmpty()) throw new PlayerNotFoundException("Player with id : "+id+" not found ");
 
         return repo.save(player);
     }
@@ -75,9 +77,42 @@ public class PlayerService {
         }
 
         else{
-            throw new RuntimeException("Player with id : "+id+" not found ");
+            throw new PlayerNotFoundException("Player with id : "+id+" not found ");
         }
         return repo.save(tempPlayer.get());
     }
+
+    // partial update (using queries/entity)
+    @Transactional
+    public void updateNationality(int id, String nationality){
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        if(tempPlayer.isEmpty()) throw new PlayerNotFoundException("Player with id : "+id+" not found ");
+
+        repo.updateNationality(id, nationality);
+    }
+
+//    @Transactional
+//    public void updateAgeAndNationality(int id, int age, String nationality){
+//        Optional<Player> tempPlayer = repo.findById(id);
+//
+//        if(tempPlayer.isEmpty()) throw new RuntimeException("Player with id : "+id+" not found ");
+//
+//        repo.updateAgeAndNationality(id, age,  nationality);
+//    }
+
+
+    // delete operations
+    public void deletePlayer(int id){
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        //  if(tempPlayer.isEmpty()) throw new RuntimeException("Player with id : "+id+" not found ");
+        if(tempPlayer.isEmpty()) throw new PlayerNotFoundException("Player with id : "+id+" not found ");
+
+        repo.delete(tempPlayer.get());
+    }
+
+
+
 
 }

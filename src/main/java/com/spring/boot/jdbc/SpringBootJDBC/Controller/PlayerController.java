@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+// Controller --Depend on -> Service ---Depend on -> Repo
+
 @RestController
 public class PlayerController {
 
@@ -51,13 +53,24 @@ public class PlayerController {
     }
 
 
+    //updating with query (only for nationality)
+    @PatchMapping("/patchPlayer/{id}/nationality")
+    public void patchNationality(@PathVariable int id, @RequestBody String nationality){
+        service.updateNationality(id, nationality);
+    }
 
-
-
-
-//    @GetMapping("/playerById")
-//    public Player getPlayerDataById(){
-//        return obj.getPlayerbyId();
+//    //updating with query (for age and nationality)
+//    @PatchMapping("/patchPlayer/{id}/age/nationality")
+//    public void patchAgeAndNationality(@PathVariable int id, @RequestBody int age, @RequestBody String nationality){
+//        service.updateAgeAndNationality(id,  age, nationality);
 //    }
+
+
+    // Delete operations
+    @DeleteMapping("/deletePlayer/{id}")
+    public void deletePlayer(@PathVariable int id){
+        service.deletePlayer(id);
+    }
+
 
 }
